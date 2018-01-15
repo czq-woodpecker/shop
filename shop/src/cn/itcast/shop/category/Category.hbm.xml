@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- hibernate约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.itcast.shop.category.Category" table="category">
+		<!-- 配置主键 -->
+		<id name="cid" column="cid">
+			<generator class="native"></generator>
+		</id>
+		<!-- 配置普通属性 -->
+		<property name="cname" column="cname"></property>
+		
+		<!-- 配置关联关系 -->
+		<set name="categorySeconds" order-by="csid" lazy="false">  <!-- 默认是延迟加载  但想用时session已经关闭 即无法加载 所以应该设置为不使用延迟加载 -->
+			<key column="cid" />
+			<one-to-many class="cn.itcast.shop.categorysecond.CategorySecond"/>
+		</set>
+	</class>
+</hibernate-mapping>   
+    
