@@ -90,6 +90,13 @@ public class Product {
 	public void setPdate(Date pdate) {
 		this.pdate = pdate;
 	}
+//	@Override
+	//CategorySecond没有设置不延时加载lazy=false，所以加上这句就会出错
+//	public String toString() {
+//		return "Product [pid=" + pid + ", pname=" + pname + ", market_price=" + market_price + ", shop_price="
+//				+ shop_price + ", image=" + image + ", pdesc=" + pdesc + ", is_hot=" + is_hot + ", pdate=" + pdate
+//				+ ", categorySecond=" + categorySecond + "]";
+//	}
 
 	
 	

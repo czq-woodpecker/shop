@@ -54,7 +54,6 @@ public class CartAction extends ActionSupport{
 			cart = new Cart();
 			//将购物车对象放入session范围
 			request.getSession().setAttribute("cart", cart);
-			request.getSession().setAttribute("test", "test");////////////////////////
 		}
 		return cart;
 	}
@@ -65,13 +64,21 @@ public class CartAction extends ActionSupport{
 	public String addCart(){
 		//查询商品信息:
 		Product product = productService.findByPid(pid);
+		///////////System.out.print(product.toString()+"========");
+		//重写toString()方法后会报错：  could not initialize proxy - no Session  因为toString()里的categorySecond没有设置不延时加载
+		
+		
+		
 		//创建一个购物项:
 		CartItem cartItem = new CartItem();
 		cartItem.setCount(count);
 		cartItem.setProduct(product);
+
 		//获取购物车依赖对象request
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Cart cart = getCart(request);
+		cart.addCart(cartItem);
+		
 		
 		return "addCartSuccess";
 		

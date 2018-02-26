@@ -43,6 +43,8 @@ public class Cart {
 			//购物车中不存在该购物项
 			map.put(pid, cartItem);
 		}
+		//总计
+		total += cartItem.getSubtotal();
 	}
 	
 	//2.将购物项从购物车中移除

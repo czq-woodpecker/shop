@@ -22,7 +22,7 @@
 
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/cart_addCart.action" method="post">
+	<form action="${pageContext.request.contextPath }/cart_addCart.action" method="post">
 	<input type="hidden" name="pid" value="<s:property value="model.pid"/>"/>
 		<div class="container header">
 			<div class="span5">
